@@ -3,25 +3,26 @@ const router = express.Router()
 const Book = require('../models/Book')
 
 
-//INDEX ROUTE
+//INDEX ROUTE (returns all books with author ID and name included)
 router.get("/", (req, res) => {
   Book.find({})
+  .populate('author', ['_id', 'name'])
   .then(books => res.json(books))
 })
-
 
 //SHOW ROUTE
 router.get("/books/:id", (req, res) => {
   Book.findOne({_id: req.params.id})
-  .then(thisBook => res.json(thisBook))
+    .populate('author', ['_id', 'name'])
+    .then(thisBook => res.json(thisBook))
 })
 
 
 //NEW ROUTE
 router.post('/', (req, res) => {
   Book.create(req.body)
-  .then(newBook => {
-    res.redirect('/')
+    .then(newBook => {
+      res.redirect('/')
   })
 })
 
