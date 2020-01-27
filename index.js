@@ -1,8 +1,8 @@
 const express = require('express')
 const parser = require('body-parser')
 const cors = require('cors')
-const booksController = require('./controllers/books')
-const authorsController = require('./controllers/authors')
+const booksController = require('./src/controllers/books')
+const authorsController = require('./src/controllers/authors')
 const app = express()
 
 
