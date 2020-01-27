@@ -1,0 +1,50 @@
+[
+	{
+		"title": "To Kill a Mockingbird",
+		"description": "The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it, To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.",
+		"author": "Harper Lee",
+		"imageUrl": "https://bookriot.com/wp-content/uploads/2015/07/To-Kill-a-Mockingbird-1st-ed.gif"
+	},
+	{
+		"title": "A Game of Thrones (A Song of Ice and Fire #1)",
+		"description": "Here is the first volume in George R. R. Martin’s magnificent cycle of novels that includes A Clash of Kings and A Storm of Swords. As a whole, this series comprises a genuine masterpiece of modern fantasy, bringing together the best the genre has to offer. Magic, mystery, intrigue, romance, and adventure fill these pages and transport us to a world unlike any we have ever experienced. Already hailed as a classic, George R. R. Martin’s stunning series is destined to stand as one of the great achievements of imaginative fiction.",
+		"author": "George R. R. Martin",
+		"imageUrl": "http://georgerrmartin.com/gallery/art/thrones11.jpg"
+	},
+	{
+		"title": "Casino Royale (James Bond (Original Series) #1)",
+		"description": "Introducing James Bond: charming, sophisticated, handsome, chillingly ruthless and licensed to kill. This, the first of Ian Fleming's tales of secret agent 007, finds Bond on a mission to neutralize a lethal, high-rolling Russian operative called simply 'le Chiffre' -- by ruining him at the Baccarat table and forcing his Soviet spymasters to 'retire' him. It seems that lady luck is taken with 007 -- le Chiffre has hit a losing streak. But some people just refuse to play by the rules, and Bond's attraction to a beautiful female agent leads him to disaster and an unexpected savior...",
+		"author": "Ian Fleming",
+		"imageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1497801490l/3758.jpg"
+	},
+	{
+		"title": "In the Woods",
+		"description": "A gorgeously written novel that marks the debut of an astonishing new voice in psychological suspense.",
+		"author": "Tana French",
+		"imageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1562761513l/2459785._SY475_.jpg"
+	},
+	{
+		"title": "The Blade Itself (The First Law #1)",
+		"description": "Logen Ninefingers, infamous barbarian, has finally run out of luck. Caught in one feud too many, he’s on the verge of becoming a dead barbarian – leaving nothing behind him but bad songs, dead friends, and a lot of happy enemies.",
+		"author": "Joe Abercrombie",
+		"imageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1284167912l/944073._SX318_SY475_.jpg"
+	},
+	{
+		"title": "Shadow Divers",
+		"description": "In the tradition of Jon Krakauer’s Into Thin Air and Sebastian Junger’s The Perfect Storm comes a true tale of riveting adventure in which two weekend scuba divers risk everything to solve a great historical mystery–and make history themselves.",
+		"author": "Robert Kurson",
+		"imageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1284167912l/944073._SX318_SY475_.jpg"
+	},
+	{
+		"title": "Dune (Dune #1)",
+		"description": "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the 'spice' melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for...",
+		"author": "Frank Herbert",
+		"imageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1555447414l/44767458.jpg"
+	},
+	{
+		"title": "Fahrenheit 451",
+		"description": "Guy Montag is a fireman. In his world, where television rules and literature is on the brink of extinction, firemen start fires rather than put them out. His job is to destroy the most illegal of commodities, the printed book, along with the houses in which they are hidden.",
+		"author": "Ray Bradbury",
+		"imageUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1383718290l/13079982.jpg"
+	}
+]
