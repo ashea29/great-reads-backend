@@ -11,7 +11,7 @@ app.use(parser.json())
 app.use(cors())
 
 
-app.use('/books', booksController)
+app.use(booksController)
 app.use('/authors', authorsController)
 
 
