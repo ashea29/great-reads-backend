@@ -14,5 +14,6 @@ app.use(cors())
 app.use(booksController)
 app.use('/authors', authorsController)
 
+app.set("port", process.env.PORT || 5000)
 
-app.listen(5000, () => console.log('Running on port 5000'))
+app.listen(app.get("port"), () => console.log(`PORT: ${app.get("port")}`))
