@@ -8,3 +8,5 @@ router.get("/", (req, res) => {
     res.json(allAuthors)
   })
 })
+
+module.exports = router;
