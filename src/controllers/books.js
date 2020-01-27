@@ -43,3 +43,5 @@ router.delete('/books/:id', (req, res) => {
     res.redirect(303, '/')
   })
 })
+
+module.exports = router
