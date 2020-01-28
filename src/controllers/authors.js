@@ -29,6 +29,17 @@ router.get("/:id", (req, res) => {
 		.then(author => res.json(author))
 })
 
+// Get author by ID (with no book details)
+router.get("/noDetails/:id", (req, res) => {
+  Author.findOne({ _id: req.params.id })
+		.then(author => res.json(author))
+})
+
+// Get all authors (with no book details)
+router.get("/noDetails/", (req, res) => {
+  Author.find({}).then(allAuthors => res.json(allAuthors))
+})
+
 // Get author by Name (incl. book details)
 router.get("/byName/:authName", (req, res) => {
   Author.findOne({ _id: req.params.authName })
