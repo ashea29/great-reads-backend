@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Book = require('../models/Book')
+const Author = require('../models/Author')
 
 
 //INDEX ROUTE (returns all books with author ID and name included)
@@ -19,7 +20,7 @@ router.get("/books/:id", (req, res) => {
 
 
 //NEW ROUTE
-router.post('/', (req, res) => {
+router.post('/books/', (req, res) => {
   Book.create(req.body)
     .then(newBook => {
       res.redirect('/')
@@ -27,8 +28,6 @@ router.post('/', (req, res) => {
 })
 
 //Create new book with author name supplied
-//router.post('/byAuthorName/', (req, res) => {
-
 // QUERY DB WITH AUTHOR NAME
 // IF AUTHOR EXISTS
 //  ADD BOOK USING THE EXISTING AUTHOR ID
@@ -37,6 +36,37 @@ router.post('/', (req, res) => {
 //  ADD BOOK USING THE NEW AUTHOR ID
 // END IF
 
+router.post('/books/:authName', (req, res) => {
+  Author.findOne({ name: req.params.authName })
+		.populate('author', ['_id', 'name'])
+		.then(author => {
+      if (!author) {
+        Author.create({"name": req.params.authName})
+          .then(author => {
+            Book.create(req.body).then(newBook => {
+							newBook.author.push(author._id)
+							newBook.save()
+
+							author.books.push(newBook._id)
+							author.save()
+
+							res.json(newBook)
+						})
+        })
+      } else {
+        Book.create(req.body)
+          .then(newBook => {
+            newBook.author.push(author._id)
+            newBook.save()
+
+            author.books.push(newBook._id)
+            author.save()
+
+            res.json(newBook)
+        })
+      }
+  })
+})
 
 //UPDATE ROUTE
 router.put('/books/:id', (req, res) => {
