@@ -26,6 +26,17 @@ router.post('/', (req, res) => {
   })
 })
 
+//Create new book with author name supplied
+//router.post('/byAuthorName/', (req, res) => {
+
+// QUERY DB WITH AUTHOR NAME
+// IF AUTHOR EXISTS
+//  ADD BOOK USING THE EXISTING AUTHOR ID
+// ELSE
+//  POST A NEW AUTHOR (using route which returns the just-created author)
+//  ADD BOOK USING THE NEW AUTHOR ID
+// END IF
+
 
 //UPDATE ROUTE
 router.put('/books/:id', (req, res) => {
