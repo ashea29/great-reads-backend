@@ -29,13 +29,19 @@ router.get("/:id", (req, res) => {
 		.then(author => res.json(author))
 })
 
-// Add new author
+// Add new author, return all authors in the DB
 router.post('/', (req, res) => {
   Author.create(req.body)
     .then(author => {
       res.redirect('/authors')
   })
 })
+
+// Add new author, return just created author in the response
+// router.post('/singleAuthor/', (req, res) => {
+//   Author.create(req.body)
+//     .then(author => res.json(author))
+// })
 
 // Update existing author
 router.put('/:id', (req, res) => {
