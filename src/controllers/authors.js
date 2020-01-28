@@ -29,6 +29,18 @@ router.get("/:id", (req, res) => {
 		.then(author => res.json(author))
 })
 
+// Get author by Name (incl. book details)
+router.get("/byName/:authName", (req, res) => {
+  Author.findOne({ _id: req.params.authName })
+		.populate('books', [
+			'_id',
+			'title',
+			'description',
+			'coverImgUrl'
+		])
+		.then(author => res.json(author))
+})
+
 // Add new author, return all authors in the DB
 router.post('/', (req, res) => {
   Author.create(req.body)
@@ -36,12 +48,6 @@ router.post('/', (req, res) => {
       res.redirect('/authors')
   })
 })
-
-// Add new author, return just created author in the response
-// router.post('/singleAuthor/', (req, res) => {
-//   Author.create(req.body)
-//     .then(author => res.json(author))
-// })
 
 // Update existing author
 router.put('/:id', (req, res) => {
