@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 			'_id',
 			'title',
 			'description',
-			'coverImgUrl'
+			'coverImgURL'
 		])
 		.then(allAuthors => {
 			res.json(allAuthors)
@@ -25,7 +25,7 @@ router.get("/:id", (req, res) => {
 			'_id',
 			'title',
 			'description',
-			'coverImgUrl'
+			'coverImgURL'
 		])
 		.then(author => res.json(author))
 })
@@ -37,7 +37,7 @@ router.get("/byName/:authName", (req, res) => {
 			'_id',
 			'title',
 			'description',
-			'coverImgUrl'
+			'coverImgURL'
 		])
 		.then(author => res.json(author))
 })
