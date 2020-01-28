@@ -2,12 +2,10 @@ const mongoose = require('../db/connection')
 
 const BookSchema = new mongoose.Schema({
   title: String,
-  author: [
-    {
+  author: {
       ref: "Author",
       type: mongoose.Schema.Types.ObjectId
-    }
-  ],
+  },
   description: String,
   coverImgURL: String
 })

@@ -44,7 +44,7 @@ router.post('/books/:authName', (req, res) => {
         Author.create({"name": req.params.authName})
           .then(author => {
             Book.create(req.body).then(newBook => {
-							newBook.author.push(author._id)
+							newBook.author = author._id
 							newBook.save()
 
 							author.books.push(newBook._id)
@@ -56,7 +56,7 @@ router.post('/books/:authName', (req, res) => {
       } else {
         Book.create(req.body)
           .then(newBook => {
-            newBook.author.push(author._id)
+            newBook.author = author._id
             newBook.save()
 
             author.books.push(newBook._id)
