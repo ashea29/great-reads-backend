@@ -80,10 +80,18 @@ router.put('/books/:id', (req, res) => {
 
 //DELETE ROUTE
 router.delete('/books/:id', (req, res) => {
-  Book.findOneAndRemove({_id: req.params.id})
-  .then(() => {
-    res.redirect(303, '/')
-  })
+  Author.findOne({books: { $in: [ req.params.id ]}})
+  .then(author => {
+    let authorBooks = author.books
+    authorBooks.splice(authorBooks.indexOf(req.params.id), 1)
+    author.books = authorBooks
+    author.save()
+
+    Book.findOneAndRemove({_id: req.params.id})
+      .then(() => {
+      res.redirect(303, '/')
+      })
+    })
 })
 
 module.exports = router
