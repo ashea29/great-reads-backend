@@ -60,7 +60,7 @@ describe('Add an author, then Get /authors/:id', function() {
 			})
 	})
 
-	it('should return a 200 response !!!!', function(done) {
+	it('should return a 200 response', function(done) {
 		api
 			.get(`/authors/${id}`)
 			.set('Accept', 'application/json')
