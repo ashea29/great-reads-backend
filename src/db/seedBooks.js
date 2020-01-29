@@ -100,3 +100,74 @@ Author.findOne({ name: 'George R. R. Martin' }).then(
 		})
 	}
 )
+
+Author.findOne({ name: 'George R. R. Martin' }).then(
+	author => {
+		Book.create({
+			title:
+				'A Feast for Crows (A Song of Ice and Fire #4)',
+			author: author._id,
+			description:
+				'Bloodthirsty, treacherous and cunning, the Lannisters are in power on the Iron Throne in the name of the boy-king Tommen. The war in the Seven Kingdoms has burned itself out, but in its bitter aftermath new conflicts spark to life.',
+			coverImgURL:
+				'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1429538615l/13497.jpg'
+		}).then(newBook => {
+			author.books.push(newBook)
+			author.save()
+			console.log(`created book: ${newBook.title}`)
+		})
+	}
+)
+
+Author.findOne({ name: 'George R. R. Martin' }).then(
+	author => {
+		Book.create({
+			title:
+				'A Dance with Dragons (A Song of Ice and Fire #5)',
+			author: author._id,
+			description:
+				'In the aftermath of a colossal battle, the future of the Seven Kingdoms hangs in the balance—beset by newly emerging threats from every direction. In the east, Daenerys Targaryen, the last scion of House Targaryen, rules with her three dragons as queen of a city built on dust and death. But Daenerys has thousands of enemies, and many have set out to find her. As they gather, one young man embarks upon his own quest for the queen, with an entirely different goal in mind.',
+			coverImgURL:
+				'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327885335l/10664113.jpg'
+		}).then(newBook => {
+			author.books.push(newBook)
+			author.save()
+			console.log(`created book: ${newBook.title}`)
+		})
+	}
+)
+
+Author.findOne({ name: 'George R. R. Martin' }).then(
+	author => {
+		Book.create({
+			title:
+				'The Winds of Winter (A Song of Ice and Fire #6)',
+			author: author._id,
+			description:
+				'The Winds of Winter is the forthcoming sixth novel in the epic fantasy series A Song of Ice and Fire by George R.R. Martin.  The previous installment, A Dance with Dragons, covered less story than Martin intended, omitting at least one planned large battle sequence and leaving several character threads ending in cliffhangers. Martin intends to resolve these cliffhangers "very early" in The Winds of Winter, saying "I\'m going to open with the two big battles that I was building up to, the battle in the ice and the battle at Meereen—the battle of Slaver\'s Bay. And then take it from there.',
+			coverImgURL:
+				'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1465341854l/12111823._SY475_.jpg'
+		}).then(newBook => {
+			author.books.push(newBook)
+			author.save()
+			console.log(`created book: ${newBook.title}`)
+		})
+	}
+)
+
+Author.findOne({ name: 'Ian Fleming' }).then(
+	author => {
+		Book.create({
+			title: 'From Russia With Love (James Bond #5)',
+			author: author._id,
+			description:
+				'James Bond is marked for death by the Soviet counterintelligence agency SMERSH in Ian Fleming’s masterful spy thriller, and the novel that President John F. Kennedy named one of his favourite books of all time.',
+			coverImgURL:
+				'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1440169210l/3764._SY475_.jpg'
+		}).then(newBook => {
+			author.books.push(newBook)
+			author.save()
+			console.log(`created book: ${newBook.title}`)
+		})
+	}
+)
