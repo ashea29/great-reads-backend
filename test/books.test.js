@@ -110,64 +110,87 @@ describe('POST /books/', function() {
 })
 
 
-// describe('POST /books/:authName', (req, res) => {
-//   let authName
-//   before(done => {
-//     authName = req.params.authName
-//     api.get(`/authors/${authName}`)
-//         .set('Accept', 'application/json')
-//         .end((error, response) => {
-//           let author = response.body[0].name
-//           if(!author) {
-//             api.post('/authors/')
-            
-//           }
-//           done()
-//         })
-//   })
+describe('POST /books/:authName', function () {
+  let previousLength
+  before((done) => {
+    api.get('/')
+        .set('Accept', 'application/json')
+        .end((error, response) => {
+          previousLength = response.body.length
+          done()
+        })
+  })
 
+  let authName
+  before((done) => {
+    api.get('/authors/random/random')
+        .set('Accept', 'application/json')
+        .end((error, response) => {
+          authName = response.body.name
+          done()
+        })
+  })
+
+  before((done) => {
+    console.log(authName)
+    api.post(`/books/${authName}`)
+        .set('Accept', 'application/json')
+        .send({
+          title: 'Test2',
+          description: 'Testing...1..2..3..',
+          coverImgURL: 'http://awesomeURL'
+        })
+        .end((error, response) => {
+          done()
+        })
+  })
   
-// })
+  it('should add a book to the books collection and return it',(done) => {
+    api.get('/')
+        .set('Accept', 'application/json')
+        .end((error, response) => {
+          expect(response.body.length).to.equal(previousLength + 1)
+          done()
+        })
+  })
+})
 
 
-// describe('PUT /books/:id', () => {
+describe('PUT /books/:id', () => {
 
-//   let bookToUpdate
+  let bookToUpdate
 
-//   before(done => {
-//       api.get('/')
-//           .set('Accept', 'application/json')
-//           .end((error, response) => {
-//               bookToUpdate = response.body[0]
-//               done()
-//           })
-//   })
+  before(done => {
+      api.get('/')
+          .set('Accept', 'application/json')
+          .end((error, response) => {
+              bookToUpdate = response.body[8]
+              done()
+          })
+  })
 
-//   before(done => {
-//       api.put(`/books/${bookToUpdate._id}`)
-//           .set('Accept', 'application/json')
-//           .send({
-//               'id': bookToUpdate._id,
-//               'author': {
-//                 name: 'Harper Leee'
-//               }
-              
-//           })
-//           .end((error, response) => {
-//               done()
-//           })
-//   })
-//   it('can update a book by id', done => {
-//       api
-//           .get(`/books/${bookToUpdate._id}`)
-//           .set('Accept', 'application/json')
-//           .end((error, response) => {
-//               expect(response.body.author.name).to.equal('Harper Leee')
-//               done()
-//           })
-//   })
+  before(done => {
+      api.put(`/books/${bookToUpdate._id}`)
+          .set('Accept', 'application/json')
+          .send({
+              'id': bookToUpdate._id,
+              'title': 'Test4' 
+          })
+          .end((error, response) => {
+              done()
+          })
+  })
+  it('can update a book by id', done => {
+      api
+          .get(`/books/${bookToUpdate._id}`)
+          .set('Accept', 'application/json')
+          .end((error, response) => {
+              expect(bookToUpdate.title).to.equal('Test4')
+              done()
+          })
+  })
 
-// })
+})
 
 
 // describe('DELETE /books/:id', () => {
