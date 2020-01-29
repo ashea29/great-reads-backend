@@ -2,6 +2,8 @@ const should = require('chai').should()
 const expect = require('chai').expect
 const supertest = require('supertest')
 const api = supertest('http://localhost:5000')
+const authorApi = supertest('http://localhost:5000/authors')
+const Author = require('../src/models/Author')
 
 
 describe('GET /', function () {
@@ -95,3 +97,62 @@ describe('POST /books/', function() {
   })
 })
 
+
+// describe('POST /books/:authName', (req, res) => {
+//   let authName
+//   before(done => {
+//     authName = req.params.authName
+//     api.get(`/authors/${authName}`)
+//         .set('Accept', 'application/json')
+//         .end((error, response) => {
+//           let author = response.body[0].name
+//           if(!author) {
+//             api.post('/authors/')
+            
+//           }
+//           done()
+//         })
+//   })
+
+  
+// })
+
+
+describe('PUT /books/:id', () => {
+
+  let bookToUpdate
+
+  before(done => {
+      api.get('/')
+          .set('Accept', 'application/json')
+          .end((error, response) => {
+              bookToUpdate = response.body[0]
+              done()
+          })
+  })
+
+  before(done => {
+      api.put(`/books/${bookToUpdate._id}`)
+          .set('Accept', 'application/json')
+          .send({
+              'id': bookToUpdate._id,
+              'author': {
+                name: 'Harper Leee'
+              }
+              
+          })
+          .end((error, response) => {
+              done()
+          })
+  })
+  it('can update a book by id', done => {
+      api
+          .get(`/books/${bookToUpdate._id}`)
+          .set('Accept', 'application/json')
+          .end((error, response) => {
+              expect(response.body.author.name).to.equal('Harper Leee')
+              done()
+          })
+  })
+
+})
