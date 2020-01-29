@@ -61,3 +61,37 @@ describe('GET /books/:id', function () {
 })
 
 
+describe('POST /books/', function() {
+  let previousLength
+  before((done) => {
+    api.get('/')
+        .set('Accept', 'application/json')
+        .end((error, response) => {
+          previousLength = response.body.length
+          done()
+        })
+  })
+
+  before((done) => {
+    api.post('/books/')
+        .set('Accept', 'application/json')
+        .send({
+          'id': previousLength + 1,
+          'title': 'Test',
+          'author': {name: 'Tester'},
+          'description': 'Testing...1..2..3..',
+          'coverImgURL': 'http://awesomeURL'
+        })
+        done()
+  })
+
+  it('should add a book to the books collection and return it',(done) => {
+    api.get('/')
+        .set('Accept', 'application/json')
+        .end((error, response) => {
+          expect(response.body.length).to.equal(previousLength + 1)
+          done()
+        })
+  })
+})
+
