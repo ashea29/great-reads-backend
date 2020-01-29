@@ -69,17 +69,16 @@ router.get("/noDetails/byName/:authName", (req, res) => {
 router.post('/', (req, res) => {
   Author.create(req.body)
     .then(author => {
-      res.redirect('/authors')
+      res.json(author)
   })
 })
 
 // Update existing author
 router.put('/:id', (req, res) => {
-  console.log(req.body)
   Author.findOneAndUpdate({_id: req.params.id},
     req.body, {new: true})
     .then(author => {
-      res.redirect(303, '/authors')
+      res.json(author)
     })
 })
 
