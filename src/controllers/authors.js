@@ -30,6 +30,18 @@ router.get("/:id", (req, res) => {
 		.then(author => res.json(author))
 })
 
+// Get 1 random author (incl. book details)
+router.get("/random/random", (req, res) => {
+  Author.findOne({})
+		.populate('books', [
+			'_id',
+			'title',
+			'description',
+			'coverImgURL'
+		])
+		.then(author => res.json(author))
+})
+
 // Get author by Name (incl. book details)
 router.get("/byName/:authName", (req, res) => {
   Author.findOne({ name: req.params.authName })
