@@ -4,7 +4,7 @@ const supertest = require('supertest')
 const api = supertest('http://localhost:5000')
 
 
-describe('Get /', function () {
+describe('GET /', function () {
   it('should return a 200 response', function (done) {
     api.get('/')
       .set('Accept', 'application/json')
@@ -32,3 +32,32 @@ describe('Get /', function () {
       })
   })
 })
+
+
+describe('GET /books/:id', function () {
+  let id
+  before(done => {
+    api.get('/')
+        .set('Accept', 'application/json')
+        .end((error, response) => {
+          id = response.body[0]._id
+          done()
+        })
+  })
+
+  it('retrieves a book by id with all the correct fields', done => {
+    api.get(`/books/${id}`)
+        .set('Accept', 'application/json')
+        .end((error, response) => {
+          expect(response.body._id).to.equal(id)
+          expect(response.body.title).to.be.a('string')
+          expect(response.body.author).to.be.an('object')
+          expect(response.body.description).to.be.a('string')
+          expect(response.body.coverImgURL).to.be.a('string')
+          done()
+        })
+  })
+
+})
+
+
