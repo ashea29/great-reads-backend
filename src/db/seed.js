@@ -14,7 +14,7 @@ Author.deleteMany({}).then(() => {
       }).then(author => {
         Book.create({
         title: book.title,
-        author: author.id,
+        author: author._id,
         description: book.description,
         coverImgURL: book.coverImgURL
         }).then(newBook => {
