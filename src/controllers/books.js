@@ -23,7 +23,8 @@ router.get("/books/:id", (req, res) => {
 router.post('/books/', (req, res) => {
   Book.create(req.body)
     .then(newBook => {
-      res.redirect('/')
+      // res.redirect('/')
+      res.json(newBook)
   })
 })
 
