@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/allenjosephs/Great-reads-backend.git"
+    "url": "git+https://github.com/ashea29/great-reads-backend"
   },
-  "author": "",
+  "author": "Joseph Allen and Andrew Shea (collaboration)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/allenjosephs/Great-reads-backend/issues"
+    "url": "https://github.com/ashea29/great-reads-backend/issues"
   },
-  "homepage": "https://github.com/allenjosephs/Great-reads-backend#readme",
+  "homepage": "https://github.com/ashea29/great-reads-backend#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
